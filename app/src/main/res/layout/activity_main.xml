@@ -42,12 +42,12 @@
             android:weightSum="1.0">
 
             <Button
-                android:id="@+id/button7"
+                android:id="@+id/singleList"
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
                 android:layout_weight="0.5"
                 android:background="@android:drawable/alert_light_frame"
-                android:text="Button" />
+                android:text="Single List" />
 
             <Button
                 android:id="@+id/button6"
