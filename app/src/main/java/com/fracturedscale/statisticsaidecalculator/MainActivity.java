@@ -16,13 +16,21 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         Button singleListBtn = findViewById(R.id.singleList);
         singleListBtn.setOnClickListener(this);
 
+        Button editListsBtn = findViewById(R.id.editListsBtn);
+        editListsBtn.setOnClickListener(this);
+
     }
 
     @Override
     public void onClick(View view) {
+        Intent i;
         switch(view.getId()){
             case R.id.singleList:
-                Intent i = new Intent(MainActivity.this,SingleList.class);
+                i = new Intent(MainActivity.this,SingleList.class);
+                startActivity(i);
+                break;
+            case R.id.editListsBtn:
+                i = new Intent(MainActivity.this,ValueLists.class);
                 startActivity(i);
                 break;
         }
