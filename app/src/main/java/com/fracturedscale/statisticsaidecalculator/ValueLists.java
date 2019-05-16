@@ -76,7 +76,7 @@ public class ValueLists extends AppCompatActivity implements View.OnKeyListener{
                 temp.setInputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_DECIMAL);
                 temp.setEms(10);
                 temp.setTag("l"+(i+1)+"r"+(j+1));
-//                View v;
+//                View v;//
 //                EditText temp = findViewById(
 //                        this.getResources().getIdentifier("l"+(i+1)+"r"+(j+1),"id", this.getPackageName()));
                 temp.setOnKeyListener(this);
