@@ -128,7 +128,7 @@ public class ValueLists extends AppCompatActivity implements View.OnKeyListener{
 
 
 
-            Toast.makeText(ValueLists.this, "Next "+ view.getTag(), Toast.LENGTH_SHORT).show();
+            Toast.makeText(ValueLists.this, keyEvent.toString()+"  "+ view.getTag(), Toast.LENGTH_SHORT).show();
         }
         return false;
     }
