@@ -1,5 +1,6 @@
 package com.fracturedscale.statisticsaidecalculator;
 
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.InputType;
@@ -11,11 +12,20 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+
+import static com.fracturedscale.statisticsaidecalculator.MainActivity.MYPREFS;
+
 public class ValueLists extends AppCompatActivity implements View.OnKeyListener{
     private LinearLayout l1;
     private LinearLayout l2;
     private LinearLayout l3;
     private LinearLayout l4;
+    public static ArrayList l1List;
+    public static ArrayList l2List;
+    public static ArrayList l3List;
+    public static ArrayList l4List;
+    private SharedPreferences myPref;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,16 +34,23 @@ public class ValueLists extends AppCompatActivity implements View.OnKeyListener{
 
         //adds action bar for back button in top left
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        myPref = getSharedPreferences(MYPREFS, 0);
 
         l1 = findViewById(R.id.l1);
         l2 = findViewById(R.id.l2);
         l3 = findViewById(R.id.l3);
         l4 = findViewById(R.id.l4);
 
-        int[] newLists = {2,2,2,2};
-        makeRows(newLists);
+        l1List = new ArrayList();
+        l2List = new ArrayList();
+        l3List = new ArrayList();
+        l4List = new ArrayList();
+
+        loadLists();
 
     }
+
+
 
     /**
      *
@@ -58,12 +75,110 @@ public class ValueLists extends AppCompatActivity implements View.OnKeyListener{
 
     @Override
     public boolean onKey(View view, int i, KeyEvent keyEvent) {
-        String temp = Integer.toString(i);
-        //Toast.makeText(ValueLists.this, temp, Toast.LENGTH_SHORT).show();
+        String temptext = Integer.toString(i);
+        //Toast.makeText(ValueLists.this, temptext, Toast.LENGTH_SHORT).show();
         if (i==66){
+            EditText temp = new EditText(this);
+            int ii = Character.getNumericValue(view.getTag().toString().charAt(1));
+            int j = Character.getNumericValue(view.getTag().toString().charAt(3));
+
+            switch ("l"+(ii)){
+                case "l1":
+                    if(l1List.size()-2<=j){
+                        l1.addView(temp);
+                    }
+                    if(l1List.size()-1==j){
+                        makeEditText(ii,j+1,temp);
+                    }else{
+                        makeEditText(ii,j+2,temp);
+                    }
+                    break;
+                case "l2":
+                    if(l2List.size()-2<=j){
+                        l2.addView(temp);
+                    }
+                    if(l2List.size()-1==j){
+                        makeEditText(ii,j+1,temp);
+                    }else{
+                        makeEditText(ii,j+2,temp);
+                    }
+                    break;
+                case "l3":
+                    if(l3List.size()-2<=j){
+                        l3.addView(temp);
+                    }
+                    if(l3List.size()-1==j){
+                        makeEditText(ii,j+1,temp);
+                    }else{
+                        makeEditText(ii,j+2,temp);
+                    }
+                    break;
+                case "l4":
+                    if(l4List.size()-2<=j){
+                        l4.addView(temp);
+                    }
+                    if(l4List.size()-1==j){
+                        makeEditText(ii,j+1,temp);
+                    }else{
+                        makeEditText(ii,j+2,temp);
+                    }
+                    break;
+            }
+
+
+
+
             Toast.makeText(ValueLists.this, "Next "+ view.getTag(), Toast.LENGTH_SHORT).show();
         }
         return false;
+    }
+
+    private void loadLists() {
+        int[] lists= new int[4];
+        for(int i = 1; i<5; i++){
+
+            switch("l"+i){
+                case "l1":
+                    if(l1List.isEmpty() || l1List.size()==0){
+                        lists[i-1]=2;
+                        l1List.add("");
+                        l1List.add("");
+                    }else{
+                        lists[i-1]=l1List.size();
+                    }
+                    break;
+                case "l2":
+                    if(l2List.isEmpty() || l2List.size()==0){
+                        lists[i-1]=2;
+                        l2List.add("");
+                        l2List.add("");
+                    }else{
+                        lists[i-1]=l2List.size();
+                    }
+                    break;
+                case "l3":
+                    if(l3List.isEmpty() || l3List.size()==0){
+                        lists[i-1]=2;
+                        l3List.add("");
+                        l3List.add("");
+                    }else{
+                        lists[i-1]=l3List.size();
+                    }
+                    break;
+                case "l4":
+                    if(l4List.isEmpty() || l4List.size()==0){
+                        lists[i-1]=2;
+                        l4List.add("");
+                        l4List.add("");
+                    }else{
+                        lists[i-1]=l4List.size();
+                    }
+                    break;
+            }
+        }
+
+
+        makeRows(lists);
     }
 
     private void makeRows(int [] rows){
@@ -71,30 +186,46 @@ public class ValueLists extends AppCompatActivity implements View.OnKeyListener{
         for(int i=0; i<4; i++) {
             for(int j=0; j<rows[i]; j++) {
                 EditText temp = new EditText(this);
-                temp.setLayoutParams(new LinearLayout.LayoutParams(
-                        LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT));
-                temp.setInputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_DECIMAL);
-                temp.setEms(10);
-                temp.setTag("l"+(i+1)+"r"+(j+1));
-//                View v;//
-//                EditText temp = findViewById(
-//                        this.getResources().getIdentifier("l"+(i+1)+"r"+(j+1),"id", this.getPackageName()));
-                temp.setOnKeyListener(this);
-                switch ("l"+(i+1)){
+                makeEditText(i, j, temp);
+                switch ("l"+(i)){
                     case "l1":
                         l1.addView(temp);
+                        if(l1List.size()-1>=j){
+                            temp.setText(l1List.get(j).toString());
+                        }
                         break;
                     case "l2":
                         l2.addView(temp);
+                        if(l2List.size()-1>=j){
+                            temp.setText(l2List.get(j).toString());
+                        }
                         break;
                     case "l3":
                         l3.addView(temp);
+                        if(l3List.size()-1>=j){
+                            temp.setText(l3List.get(j).toString());
+                        }
                         break;
                     case "l4":
                         l4.addView(temp);
+                        if(l4List.size()-1>=j){
+                            temp.setText(l4List.get(j).toString());
+                        }
                         break;
                 }
             }
         }
+    }
+
+    private void makeEditText(int i, int j, EditText temp) {
+        temp.setLayoutParams(new LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT));
+        temp.setInputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_DECIMAL);
+        temp.setEms(10);
+        temp.setTag("l"+(i)+"r"+(j));
+//                View v;//
+//                EditText temp = findViewById(
+//                        this.getResources().getIdentifier("l"+(i+1)+"r"+(j+1),"id", this.getPackageName()));
+        temp.setOnKeyListener(this);
     }
 }
