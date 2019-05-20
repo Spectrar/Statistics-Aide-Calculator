@@ -21,10 +21,10 @@ public class ValueLists extends AppCompatActivity implements View.OnClickListene
     private LinearLayout l2;
     private LinearLayout l3;
     private LinearLayout l4;
-    public static ArrayList l1List;
-    public static ArrayList l2List;
-    public static ArrayList l3List;
-    public static ArrayList l4List;
+    public static ArrayList <Integer> l1List;
+    public static ArrayList <Integer> l2List;
+    public static ArrayList <Integer> l3List;
+    public static ArrayList <Integer> l4List;
     private SharedPreferences myPref;
 
     @Override
@@ -84,17 +84,17 @@ public class ValueLists extends AppCompatActivity implements View.OnClickListene
             int j = Character.getNumericValue(view.getTag().toString().charAt(3));
             EditText temp2 = new EditText(this);
 
-            switch ("l"+(ii)){
+            switch ("l"+(ii+1)){
                 case "l1":
 
                     if(l1List.size()-1==j){
                         makeEditText(ii,j+1,temp);
                         l1.addView(temp);
-                        l1List.add("");
+                        l1List.add(null);
                     }else if(l1List.size()-2==j){
                         makeEditText(ii,j+2,temp);
                         l1.addView(temp);
-                        l1List.add("");
+                        l1List.add(null);
                     }
                     temp2=l1.findViewWithTag("l"+(ii)+"r"+(j+1));
                     break;
@@ -103,11 +103,11 @@ public class ValueLists extends AppCompatActivity implements View.OnClickListene
                     if(l2List.size()-1==j){
                         makeEditText(ii,j+1,temp);
                         l2.addView(temp);
-                        l2List.add("");
+                        l2List.add(null);
                     }else if(l2List.size()-2==j){
                         makeEditText(ii,j+2,temp);
                         l2.addView(temp);
-                        l2List.add("");
+                        l2List.add(null);
                     }
                     temp2=l2.findViewWithTag("l"+(ii)+"r"+(j+1));
                     break;
@@ -116,11 +116,11 @@ public class ValueLists extends AppCompatActivity implements View.OnClickListene
                     if(l3List.size()-1==j){
                         makeEditText(ii,j+1,temp);
                         l3.addView(temp);
-                        l3List.add("");
+                        l3List.add(null);
                     }else if(l3List.size()-2==j){
                         makeEditText(ii,j+2,temp);
                         l3.addView(temp);
-                        l3List.add("");
+                        l3List.add(null);
                     }
                     temp2=l3.findViewWithTag("l"+(ii)+"r"+(j+1));
                     break;
@@ -129,11 +129,11 @@ public class ValueLists extends AppCompatActivity implements View.OnClickListene
                     if(l4List.size()-1==j){
                         makeEditText(ii,j+1,temp);
                         l4.addView(temp);
-                        l4List.add("");
+                        l4List.add(null);
                     }else if(l4List.size()-2==j){
                         makeEditText(ii,j+2,temp);
                         l4.addView(temp);
-                        l4List.add("");
+                        l4List.add(null);
                     }
                     temp2=l4.findViewWithTag("l"+(ii)+"r"+(j+1));
                     break;
@@ -157,8 +157,8 @@ public class ValueLists extends AppCompatActivity implements View.OnClickListene
                 case "l1":
                     if(l1List.isEmpty() || l1List.size()==0){
                         lists[i-1]=2;
-                        l1List.add("");
-                        l1List.add("");
+                        l1List.add(null);
+                        l1List.add(null);
                     }else{
                         lists[i-1]=l1List.size();
                     }
@@ -166,8 +166,8 @@ public class ValueLists extends AppCompatActivity implements View.OnClickListene
                 case "l2":
                     if(l2List.isEmpty() || l2List.size()==0){
                         lists[i-1]=2;
-                        l2List.add("");
-                        l2List.add("");
+                        l2List.add(null);
+                        l2List.add(null);
                     }else{
                         lists[i-1]=l2List.size();
                     }
@@ -175,8 +175,8 @@ public class ValueLists extends AppCompatActivity implements View.OnClickListene
                 case "l3":
                     if(l3List.isEmpty() || l3List.size()==0){
                         lists[i-1]=2;
-                        l3List.add("");
-                        l3List.add("");
+                        l3List.add(null);
+                        l3List.add(null);
                     }else{
                         lists[i-1]=l3List.size();
                     }
@@ -184,8 +184,8 @@ public class ValueLists extends AppCompatActivity implements View.OnClickListene
                 case "l4":
                     if(l4List.isEmpty() || l4List.size()==0){
                         lists[i-1]=2;
-                        l4List.add("");
-                        l4List.add("");
+                        l4List.add(null);
+                        l4List.add(null);
                     }else{
                         lists[i-1]=l4List.size();
                     }
@@ -203,29 +203,34 @@ public class ValueLists extends AppCompatActivity implements View.OnClickListene
             for(int j=0; j<rows[i]; j++) {
                 EditText temp = new EditText(this);
                 makeEditText(i, j, temp);
-                switch ("l"+(i)){
+                switch ("l"+(i+1)){
                     case "l1":
                         l1.addView(temp);
                         if(l1List.size()-1>=j){
+                            if(!(l1List.get(j)==null))
                             temp.setText(l1List.get(j).toString());
                         }
                         break;
                     case "l2":
                         l2.addView(temp);
                         if(l2List.size()-1>=j){
+                            if(!(l2List.get(j)==null))
                             temp.setText(l2List.get(j).toString());
                         }
                         break;
                     case "l3":
                         l3.addView(temp);
                         if(l3List.size()-1>=j){
+                            if(!(l3List.get(j)==null))
                             temp.setText(l3List.get(j).toString());
                         }
                         break;
                     case "l4":
                         l4.addView(temp);
                         if(l4List.size()-1>=j){
-                            temp.setText(l4List.get(j).toString());
+                            if(!(l4List.get(j)==null)) {
+                                temp.setText(l4List.get(j).toString());
+                            }
                         }
                         break;
                 }
@@ -243,5 +248,13 @@ public class ValueLists extends AppCompatActivity implements View.OnClickListene
 //                EditText temp = findViewById(
 //                        this.getResources().getIdentifier("l"+(i+1)+"r"+(j+1),"id", this.getPackageName()));
         temp.setOnClickListener(this);
+    }
+
+    private void saveLists(LinearLayout l, ArrayList<Integer> array){
+        for(int i = 0; i<l.getChildCount(); i++){
+            EditText v = (EditText) l.getChildAt(i);
+
+            array.set(i, Integer.valueOf(v.getText().toString()));
+        }
     }
 }
