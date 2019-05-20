@@ -16,7 +16,7 @@ import java.util.ArrayList;
 
 import static com.fracturedscale.statisticsaidecalculator.MainActivity.MYPREFS;
 
-public class ValueLists extends AppCompatActivity implements View.OnKeyListener{
+public class ValueLists extends AppCompatActivity implements View.OnClickListener{
     private LinearLayout l1;
     private LinearLayout l2;
     private LinearLayout l3;
@@ -74,53 +74,62 @@ public class ValueLists extends AppCompatActivity implements View.OnKeyListener{
     }
 
     @Override
-    public boolean onKey(View view, int i, KeyEvent keyEvent) {
-        String temptext = Integer.toString(i);
+    public void onClick(View view) {
+        //String temptext = Integer.toString(i);
         //Toast.makeText(ValueLists.this, temptext, Toast.LENGTH_SHORT).show();
-        if (i==66){
+
+        {//if (i==66){
             EditText temp = new EditText(this);
             int ii = Character.getNumericValue(view.getTag().toString().charAt(1));
             int j = Character.getNumericValue(view.getTag().toString().charAt(3));
 
             switch ("l"+(ii)){
                 case "l1":
-                    if(l1List.size()-2<=j){
-                        l1.addView(temp);
-                    }
+
                     if(l1List.size()-1==j){
                         makeEditText(ii,j+1,temp);
-                    }else{
+                        l1.addView(temp);
+                        l1List.add("");
+                    }else if(l1List.size()-2==j){
                         makeEditText(ii,j+2,temp);
+                        l1.addView(temp);
+                        l1List.add("");
                     }
                     break;
                 case "l2":
-                    if(l2List.size()-2<=j){
-                        l2.addView(temp);
-                    }
+
                     if(l2List.size()-1==j){
                         makeEditText(ii,j+1,temp);
-                    }else{
+                        l2.addView(temp);
+                        l2List.add("");
+                    }else if(l2List.size()-2==j){
                         makeEditText(ii,j+2,temp);
+                        l2.addView(temp);
+                        l2List.add("");
                     }
                     break;
                 case "l3":
-                    if(l3List.size()-2<=j){
-                        l3.addView(temp);
-                    }
+
                     if(l3List.size()-1==j){
                         makeEditText(ii,j+1,temp);
-                    }else{
+                        l3.addView(temp);
+                        l3List.add("");
+                    }else if(l3List.size()-2==j){
                         makeEditText(ii,j+2,temp);
+                        l3.addView(temp);
+                        l3List.add("");
                     }
                     break;
                 case "l4":
-                    if(l4List.size()-2<=j){
-                        l4.addView(temp);
-                    }
+
                     if(l4List.size()-1==j){
                         makeEditText(ii,j+1,temp);
-                    }else{
+                        l4.addView(temp);
+                        l4List.add("");
+                    }else if(l4List.size()-2==j){
                         makeEditText(ii,j+2,temp);
+                        l4.addView(temp);
+                        l4List.add("");
                     }
                     break;
             }
@@ -128,9 +137,9 @@ public class ValueLists extends AppCompatActivity implements View.OnKeyListener{
 
 
 
-            Toast.makeText(ValueLists.this, keyEvent.toString()+"  "+ view.getTag(), Toast.LENGTH_SHORT).show();
+            Toast.makeText(ValueLists.this, view.getTag().toString(), Toast.LENGTH_SHORT).show();
         }
-        return false;
+
     }
 
     private void loadLists() {
@@ -226,6 +235,6 @@ public class ValueLists extends AppCompatActivity implements View.OnKeyListener{
 //                View v;//
 //                EditText temp = findViewById(
 //                        this.getResources().getIdentifier("l"+(i+1)+"r"+(j+1),"id", this.getPackageName()));
-        temp.setOnKeyListener(this);
+        temp.setOnClickListener(this);
     }
 }
