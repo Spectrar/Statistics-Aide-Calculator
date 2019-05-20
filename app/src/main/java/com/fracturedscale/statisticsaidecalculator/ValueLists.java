@@ -82,6 +82,7 @@ public class ValueLists extends AppCompatActivity implements View.OnClickListene
             EditText temp = new EditText(this);
             int ii = Character.getNumericValue(view.getTag().toString().charAt(1));
             int j = Character.getNumericValue(view.getTag().toString().charAt(3));
+            EditText temp2 = new EditText(this);
 
             switch ("l"+(ii)){
                 case "l1":
@@ -95,6 +96,7 @@ public class ValueLists extends AppCompatActivity implements View.OnClickListene
                         l1.addView(temp);
                         l1List.add("");
                     }
+                    temp2=l1.findViewWithTag("l"+(ii)+"r"+(j+1));
                     break;
                 case "l2":
 
@@ -107,6 +109,7 @@ public class ValueLists extends AppCompatActivity implements View.OnClickListene
                         l2.addView(temp);
                         l2List.add("");
                     }
+                    temp2=l2.findViewWithTag("l"+(ii)+"r"+(j+1));
                     break;
                 case "l3":
 
@@ -119,6 +122,7 @@ public class ValueLists extends AppCompatActivity implements View.OnClickListene
                         l3.addView(temp);
                         l3List.add("");
                     }
+                    temp2=l3.findViewWithTag("l"+(ii)+"r"+(j+1));
                     break;
                 case "l4":
 
@@ -131,10 +135,13 @@ public class ValueLists extends AppCompatActivity implements View.OnClickListene
                         l4.addView(temp);
                         l4List.add("");
                     }
+                    temp2=l4.findViewWithTag("l"+(ii)+"r"+(j+1));
                     break;
             }
+            //view.clearFocus();
 
 
+            temp2.requestFocus();
 
 
             Toast.makeText(ValueLists.this, view.getTag().toString(), Toast.LENGTH_SHORT).show();
