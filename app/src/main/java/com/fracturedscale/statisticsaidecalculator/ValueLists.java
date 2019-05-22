@@ -21,10 +21,10 @@ public class ValueLists extends AppCompatActivity implements View.OnClickListene
     private LinearLayout l2;
     private LinearLayout l3;
     private LinearLayout l4;
-    public static ArrayList <Integer> l1List;
-    public static ArrayList <Integer> l2List;
-    public static ArrayList <Integer> l3List;
-    public static ArrayList <Integer> l4List;
+    public static ArrayList <Double> l1List;
+    public static ArrayList <Double> l2List;
+    public static ArrayList <Double> l3List;
+    public static ArrayList <Double> l4List;
     private SharedPreferences myPref;
 
     @Override
@@ -250,11 +250,27 @@ public class ValueLists extends AppCompatActivity implements View.OnClickListene
         temp.setOnClickListener(this);
     }
 
-    private void saveLists(LinearLayout l, ArrayList<Integer> array){
-        for(int i = 0; i<l.getChildCount(); i++){
-            EditText v = (EditText) l.getChildAt(i);
+    private void saveLists(LinearLayout l, ArrayList<Double> array){
+        for(int i = 0; i<l.getChildCount()-1; i++){
+            View v = (EditText) l.getChildAt(i+1);
+            EditText et = (EditText) v;
 
-            array.set(i, Integer.valueOf(v.getText().toString()));
+            if(et.getText().equals(null) || et.getText().toString().equals("")){
+                array.set(i, null);
+            }else {
+                array.set(i, Double.valueOf(et.getText().toString()));
+            }
         }
+    }
+
+    @Override
+    protected void onStop(){
+        super.onStop();
+
+        saveLists(l1,l1List);
+        saveLists(l2,l2List);
+        saveLists(l3,l3List);
+        saveLists(l4,l4List);
+
     }
 }
