@@ -7,6 +7,10 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.google.gson.Gson;
+
+import java.util.ArrayList;
+
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     final static String MYPREFS = "MyPreferences_001";
     private SharedPreferences myPref;
@@ -24,6 +28,28 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         Button editListsBtn = findViewById(R.id.editListsBtn);
         editListsBtn.setOnClickListener(this);
 
+        if(!myPref.getString("List1", "").equals("")) {
+            ValueLists.l1List = new Gson().fromJson(myPref.getString("List1", ""), ArrayList.class);
+        }else{
+            ValueLists.l1List = new ArrayList<>();
+        }
+        if(!myPref.getString("List2", "").equals("")) {
+            ValueLists.l2List = new Gson().fromJson(myPref.getString("List2", ""), ArrayList.class);
+        }else{
+            ValueLists.l2List = new ArrayList<>();
+        }
+        if(!myPref.getString("List3", "").equals("")) {
+            ValueLists.l3List = new Gson().fromJson(myPref.getString("List3", ""), ArrayList.class);
+        }else{
+            ValueLists.l3List = new ArrayList<>();
+        }
+        if(!myPref.getString("List4", "").equals("")) {
+            ValueLists.l4List = new Gson().fromJson(myPref.getString("List4", ""), ArrayList.class);
+        }else{
+            ValueLists.l4List = new ArrayList<>();
+        }
+
+
     }
 
     @Override
@@ -39,5 +65,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 startActivity(i);
                 break;
         }
+    }
+    @Override
+    protected void onStop() {
+        super.onStop();
+
     }
 }

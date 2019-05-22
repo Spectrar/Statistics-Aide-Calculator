@@ -12,6 +12,8 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
+import com.google.gson.Gson;
+
 import java.util.ArrayList;
 
 import static com.fracturedscale.statisticsaidecalculator.MainActivity.MYPREFS;
@@ -41,10 +43,7 @@ public class ValueLists extends AppCompatActivity implements View.OnClickListene
         l3 = findViewById(R.id.l3);
         l4 = findViewById(R.id.l4);
 
-        l1List = new ArrayList();
-        l2List = new ArrayList();
-        l3List = new ArrayList();
-        l4List = new ArrayList();
+
 
         loadLists();
 
@@ -271,6 +270,13 @@ public class ValueLists extends AppCompatActivity implements View.OnClickListene
         saveLists(l2,l2List);
         saveLists(l3,l3List);
         saveLists(l4,l4List);
+
+        SharedPreferences.Editor edit = myPref.edit();
+        edit.putString("List1", new Gson().toJson(ValueLists.l1List));
+        edit.putString("List2", new Gson().toJson(ValueLists.l2List));
+        edit.putString("List3", new Gson().toJson(ValueLists.l3List));
+        edit.putString("List4", new Gson().toJson(ValueLists.l4List));
+        edit.apply();
 
     }
 }
