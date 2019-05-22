@@ -57,7 +57,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         Intent i;
         switch(view.getId()){
             case R.id.singleList:
-                i = new Intent(MainActivity.this,SingleList.class);
+                i = new Intent(MainActivity.this, ListCalc.class);
                 startActivity(i);
                 break;
             case R.id.editListsBtn:

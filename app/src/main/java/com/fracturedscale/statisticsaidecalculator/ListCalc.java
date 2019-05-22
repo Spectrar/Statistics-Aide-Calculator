@@ -5,12 +5,12 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
-public class SingleList extends AppCompatActivity {
+public class ListCalc extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_single_list);
+        setContentView(R.layout.activity_list_calc);
 
         //adds action bar for back button in top left
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
