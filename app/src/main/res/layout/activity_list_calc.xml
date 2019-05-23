@@ -84,7 +84,7 @@
                     android:layout_weight="1"
                     android:text="Relative Frequency:"
                     android:textAlignment="textEnd"
-                    android:textSize="16sp" />
+                    android:textSize="17sp" />
 
                 <TextView
                     android:id="@+id/relativeFrequencyResult"
@@ -92,7 +92,7 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:ems="10"
-                    android:textSize="16sp" />
+                    android:textSize="17sp" />
             </TableRow>
 
             <TableRow
@@ -107,7 +107,7 @@
                     android:layout_weight="1"
                     android:text="Frequency:"
                     android:textAlignment="textEnd"
-                    android:textSize="16sp" />
+                    android:textSize="17sp" />
 
                 <TextView
                     android:id="@+id/frequencyResult"
@@ -115,7 +115,7 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:ems="10"
-                    android:textSize="16sp" />
+                    android:textSize="17sp" />
             </TableRow>
 
             <TableRow
@@ -130,7 +130,7 @@
                     android:layout_weight="1"
                     android:text="Mode:"
                     android:textAlignment="textEnd"
-                    android:textSize="16sp" />
+                    android:textSize="17sp" />
 
                 <TextView
                     android:id="@+id/modeResult"
@@ -138,7 +138,7 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:ems="10"
-                    android:textSize="16sp" />
+                    android:textSize="17sp" />
             </TableRow>
 
             <TableRow
@@ -153,7 +153,7 @@
                     android:layout_weight="1"
                     android:text="Mean:"
                     android:textAlignment="textEnd"
-                    android:textSize="16sp" />
+                    android:textSize="17sp" />
 
                 <TextView
                     android:id="@+id/meanResult"
@@ -161,7 +161,7 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:ems="10"
-                    android:textSize="16sp" />
+                    android:textSize="17sp" />
             </TableRow>
 
             <TableRow
@@ -176,7 +176,7 @@
                     android:layout_weight="1"
                     android:text="Standard Deviation:"
                     android:textAlignment="textEnd"
-                    android:textSize="16sp" />
+                    android:textSize="17sp" />
 
                 <TextView
                     android:id="@+id/sdResult"
@@ -184,7 +184,7 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:ems="10"
-                    android:textSize="16sp" />
+                    android:textSize="17sp" />
             </TableRow>
 
             <TableRow
@@ -199,7 +199,7 @@
                     android:layout_weight="1"
                     android:text="Range:"
                     android:textAlignment="textEnd"
-                    android:textSize="16sp" />
+                    android:textSize="17sp" />
 
                 <TextView
                     android:id="@+id/rangeResult"
@@ -207,7 +207,7 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:ems="10"
-                    android:textSize="16sp" />
+                    android:textSize="17sp" />
             </TableRow>
 
             <TableRow
@@ -222,7 +222,7 @@
                     android:layout_weight="1"
                     android:text="Z Score:"
                     android:textAlignment="textEnd"
-                    android:textSize="16sp" />
+                    android:textSize="17sp" />
 
                 <TextView
                     android:id="@+id/zScoreResult"
@@ -230,7 +230,7 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:ems="10"
-                    android:textSize="16sp" />
+                    android:textSize="17sp" />
             </TableRow>
 
             <TableRow
@@ -245,7 +245,7 @@
                     android:layout_weight="1"
                     android:text="Q1:"
                     android:textAlignment="textEnd"
-                    android:textSize="16sp" />
+                    android:textSize="17sp" />
 
                 <TextView
                     android:id="@+id/q1Result"
@@ -253,7 +253,7 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:ems="10"
-                    android:textSize="16sp" />
+                    android:textSize="17sp" />
             </TableRow>
 
             <TableRow
@@ -268,7 +268,7 @@
                     android:layout_weight="1"
                     android:text="Q2:"
                     android:textAlignment="textEnd"
-                    android:textSize="16sp" />
+                    android:textSize="17sp" />
 
                 <TextView
                     android:id="@+id/q2Result"
@@ -276,7 +276,7 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:ems="10"
-                    android:textSize="16sp" />
+                    android:textSize="17sp" />
             </TableRow>
 
             <TableRow
@@ -291,7 +291,7 @@
                     android:layout_weight="1"
                     android:text="Lower Fence:"
                     android:textAlignment="textEnd"
-                    android:textSize="16sp" />
+                    android:textSize="17sp" />
 
                 <TextView
                     android:id="@+id/lowerFenceResult"
@@ -299,7 +299,7 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:ems="10"
-                    android:textSize="16sp" />
+                    android:textSize="17sp" />
             </TableRow>
 
             <TableRow
@@ -314,7 +314,7 @@
                     android:layout_weight="1"
                     android:text="Upper Fence:"
                     android:textAlignment="textEnd"
-                    android:textSize="16sp" />
+                    android:textSize="17sp" />
 
                 <TextView
                     android:id="@+id/upperFenceResult"
@@ -322,7 +322,7 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:ems="10"
-                    android:textSize="16sp" />
+                    android:textSize="17sp" />
             </TableRow>
 
             <TableRow
@@ -337,7 +337,7 @@
                     android:layout_weight="1"
                     android:text="Median:"
                     android:textAlignment="textEnd"
-                    android:textSize="16sp" />
+                    android:textSize="17sp" />
 
                 <TextView
                     android:id="@+id/medianResult"
@@ -345,7 +345,7 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:ems="10"
-                    android:textSize="16sp" />
+                    android:textSize="17sp" />
             </TableRow>
 
             <TableRow
@@ -360,7 +360,7 @@
                     android:layout_weight="1"
                     android:text="Sum:"
                     android:textAlignment="textEnd"
-                    android:textSize="16sp" />
+                    android:textSize="17sp" />
 
                 <TextView
                     android:id="@+id/sumResult"
@@ -368,7 +368,7 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:ems="10"
-                    android:textSize="16sp" />
+                    android:textSize="17sp" />
             </TableRow>
 
             <TableRow
@@ -383,7 +383,7 @@
                     android:layout_weight="1"
                     android:text="Sum^2:"
                     android:textAlignment="textEnd"
-                    android:textSize="16sp" />
+                    android:textSize="17sp" />
 
                 <TextView
                     android:id="@+id/sum2Result"
@@ -391,7 +391,7 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:ems="10"
-                    android:textSize="16sp" />
+                    android:textSize="17sp" />
             </TableRow>
 
         </TableLayout>
