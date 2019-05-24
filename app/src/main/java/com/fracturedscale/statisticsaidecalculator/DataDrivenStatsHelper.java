@@ -28,10 +28,10 @@ public class DataDrivenStatsHelper {
 
     }
 
-    public DataDrivenStatsHelper(double[] list) {
+    public DataDrivenStatsHelper(Double[] list) {
         Arrays.sort(list);
 
-        for (double d : list) {
+        for (Double d : list) {
             f.addValue(d);
             ss.addValue(d);
             fullList.add(d);

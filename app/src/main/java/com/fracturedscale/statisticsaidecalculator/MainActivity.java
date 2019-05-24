@@ -31,22 +31,50 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         if(!myPref.getString("List1", "").equals("")) {
             ValueLists.l1List = new Gson().fromJson(myPref.getString("List1", ""), ArrayList.class);
         }else{
-            ValueLists.l1List = new ArrayList<>();
+            ValueLists.l1List = new ArrayList(){
+                private static final long serialVersionUID = 1L;
+
+                @Override public String toString()
+                {
+                    return "List 1";
+                }
+            };
         }
         if(!myPref.getString("List2", "").equals("")) {
             ValueLists.l2List = new Gson().fromJson(myPref.getString("List2", ""), ArrayList.class);
         }else{
-            ValueLists.l2List = new ArrayList<>();
+            ValueLists.l2List = new ArrayList(){
+                private static final long serialVersionUID = 1L;
+
+                @Override public String toString()
+                {
+                    return "List 2";
+                }
+            };
         }
         if(!myPref.getString("List3", "").equals("")) {
             ValueLists.l3List = new Gson().fromJson(myPref.getString("List3", ""), ArrayList.class);
         }else{
-            ValueLists.l3List = new ArrayList<>();
+            ValueLists.l3List = new ArrayList(){
+                private static final long serialVersionUID = 1L;
+
+                @Override public String toString()
+                {
+                    return "List 3";
+                }
+            };
         }
         if(!myPref.getString("List4", "").equals("")) {
             ValueLists.l4List = new Gson().fromJson(myPref.getString("List4", ""), ArrayList.class);
         }else{
-            ValueLists.l4List = new ArrayList<>();
+            ValueLists.l4List = new ArrayList(){
+                private static final long serialVersionUID = 1L;
+
+                @Override public String toString()
+                {
+                    return "List 4";
+                }
+            };
         }
 
 
