@@ -13,7 +13,9 @@ import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 
+import java.lang.reflect.Type;
 import java.util.ArrayList;
 
 import static com.fracturedscale.statisticsaidecalculator.MainActivity.MYPREFS;
@@ -36,7 +38,7 @@ public class ValueLists extends AppCompatActivity implements View.OnClickListene
 
         //adds action bar for back button in top left
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        myPref = getSharedPreferences(MYPREFS, 0);
+        myPref = getSharedPreferences(MainActivity.MYPREFS, 0);
 
         l1 = findViewById(R.id.l1);
         l2 = findViewById(R.id.l2);
@@ -254,7 +256,7 @@ public class ValueLists extends AppCompatActivity implements View.OnClickListene
             View v = (EditText) l.getChildAt(i+1);
             EditText et = (EditText) v;
 
-            if(et.getText().equals(null) || et.getText().toString().equals("")){
+            if(et.getText() == null || et.getText().toString().equals("")){
                 array.set(i, null);
             }else {
                 array.set(i, Double.valueOf(et.getText().toString()));
@@ -271,11 +273,13 @@ public class ValueLists extends AppCompatActivity implements View.OnClickListene
         saveLists(l3,l3List);
         saveLists(l4,l4List);
 
+        Type collectionType = new TypeToken<ArrayList<Double>>() {
+        }.getType();
         SharedPreferences.Editor edit = myPref.edit();
-        edit.putString("List1", new Gson().toJson(ValueLists.l1List));
-        edit.putString("List2", new Gson().toJson(ValueLists.l2List));
-        edit.putString("List3", new Gson().toJson(ValueLists.l3List));
-        edit.putString("List4", new Gson().toJson(ValueLists.l4List));
+        edit.putString("List1", new Gson().toJson(l1List,collectionType));
+        edit.putString("List2", new Gson().toJson(l2List,collectionType));
+        edit.putString("List3", new Gson().toJson(l3List,collectionType));
+        edit.putString("List4", new Gson().toJson(l4List,collectionType));
         edit.apply();
 
     }

@@ -60,18 +60,18 @@
                         android:textSize="24sp" />
 
                     <!--<EditText-->
-                        <!--android:id="@+id/l1r1"-->
-                        <!--android:layout_width="wrap_content"-->
-                        <!--android:layout_height="wrap_content"-->
-                        <!--android:ems="10"-->
-                        <!--android:inputType="numberDecimal" />-->
+                    <!--android:id="@+id/l1r1"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:ems="10"-->
+                    <!--android:inputType="numberDecimal" />-->
 
                     <!--<EditText-->
-                        <!--android:id="@+id/l1r2"-->
-                        <!--android:layout_width="wrap_content"-->
-                        <!--android:layout_height="wrap_content"-->
-                        <!--android:ems="10"-->
-                        <!--android:inputType="numberDecimal" />-->
+                    <!--android:id="@+id/l1r2"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:ems="10"-->
+                    <!--android:inputType="numberDecimal" />-->
 
                 </LinearLayout>
 
@@ -92,18 +92,18 @@
                         android:textSize="24sp" />
 
                     <!--<EditText-->
-                        <!--android:id="@+id/l2r1"-->
-                        <!--android:layout_width="wrap_content"-->
-                        <!--android:layout_height="wrap_content"-->
-                        <!--android:ems="10"-->
-                        <!--android:inputType="numberDecimal" />-->
+                    <!--android:id="@+id/l2r1"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:ems="10"-->
+                    <!--android:inputType="numberDecimal" />-->
 
                     <!--<EditText-->
-                        <!--android:id="@+id/l2r2"-->
-                        <!--android:layout_width="wrap_content"-->
-                        <!--android:layout_height="wrap_content"-->
-                        <!--android:ems="10"-->
-                        <!--android:inputType="numberDecimal" />-->
+                    <!--android:id="@+id/l2r2"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:ems="10"-->
+                    <!--android:inputType="numberDecimal" />-->
 
                 </LinearLayout>
 

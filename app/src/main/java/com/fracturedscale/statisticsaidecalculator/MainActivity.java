@@ -8,7 +8,9 @@ import android.view.View;
 import android.widget.Button;
 
 import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 
+import java.lang.reflect.Type;
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
@@ -20,7 +22,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        myPref = getSharedPreferences(MYPREFS, 0);
+        myPref = getSharedPreferences(MainActivity.MYPREFS, 0);
 
         Button singleListBtn = findViewById(R.id.singleList);
         singleListBtn.setOnClickListener(this);
@@ -28,50 +30,52 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         Button editListsBtn = findViewById(R.id.editListsBtn);
         editListsBtn.setOnClickListener(this);
 
-        if(!myPref.getString("List1", "").equals("")) {
-            ValueLists.l1List = new Gson().fromJson(myPref.getString("List1", ""), ArrayList.class);
-        }else{
-            ValueLists.l1List = new ArrayList(){
+        Type collectionType = new TypeToken<ArrayList<Double>>() {
+        }.getType();
+        if (!myPref.getString("List1", "").equals("")) {
+            ValueLists.l1List = new Gson().fromJson(myPref.getString("List1", "").toString(), collectionType);
+        } else {
+            ValueLists.l1List = new ArrayList<Double>() {
                 private static final long serialVersionUID = 1L;
 
-                @Override public String toString()
-                {
+                @Override
+                public String toString() {
                     return "List 1";
                 }
             };
         }
-        if(!myPref.getString("List2", "").equals("")) {
-            ValueLists.l2List = new Gson().fromJson(myPref.getString("List2", ""), ArrayList.class);
-        }else{
-            ValueLists.l2List = new ArrayList(){
+        if (!myPref.getString("List2", "").equals("")) {
+            ValueLists.l2List = new Gson().fromJson(myPref.getString("List2", ""), collectionType);
+        } else {
+            ValueLists.l2List = new ArrayList<Double>() {
                 private static final long serialVersionUID = 1L;
 
-                @Override public String toString()
-                {
+                @Override
+                public String toString() {
                     return "List 2";
                 }
             };
         }
-        if(!myPref.getString("List3", "").equals("")) {
-            ValueLists.l3List = new Gson().fromJson(myPref.getString("List3", ""), ArrayList.class);
-        }else{
-            ValueLists.l3List = new ArrayList(){
+        if (!myPref.getString("List3", "").equals("")) {
+            ValueLists.l3List = new Gson().fromJson(myPref.getString("List3", ""), collectionType);
+        } else {
+            ValueLists.l3List = new ArrayList<Double>() {
                 private static final long serialVersionUID = 1L;
 
-                @Override public String toString()
-                {
+                @Override
+                public String toString() {
                     return "List 3";
                 }
             };
         }
-        if(!myPref.getString("List4", "").equals("")) {
-            ValueLists.l4List = new Gson().fromJson(myPref.getString("List4", ""), ArrayList.class);
-        }else{
-            ValueLists.l4List = new ArrayList(){
+        if (!myPref.getString("List4", "").equals("")) {
+            ValueLists.l4List = new Gson().fromJson(myPref.getString("List4", ""), collectionType);
+        } else {
+            ValueLists.l4List = new ArrayList<Double>() {
                 private static final long serialVersionUID = 1L;
 
-                @Override public String toString()
-                {
+                @Override
+                public String toString() {
                     return "List 4";
                 }
             };
@@ -83,17 +87,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick(View view) {
         Intent i;
-        switch(view.getId()){
+        switch (view.getId()) {
             case R.id.singleList:
                 i = new Intent(MainActivity.this, ListCalc.class);
                 startActivity(i);
                 break;
             case R.id.editListsBtn:
-                i = new Intent(MainActivity.this,ValueLists.class);
+                i = new Intent(MainActivity.this, ValueLists.class);
                 startActivity(i);
                 break;
         }
     }
+
     @Override
     protected void onStop() {
         super.onStop();
