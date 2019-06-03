@@ -276,10 +276,10 @@ public class ValueLists extends AppCompatActivity implements View.OnClickListene
         Type collectionType = new TypeToken<ArrayList<Double>>() {
         }.getType();
         SharedPreferences.Editor edit = myPref.edit();
-        edit.putString("List1", new Gson().toJson(l1List,collectionType));
-        edit.putString("List2", new Gson().toJson(l2List,collectionType));
-        edit.putString("List3", new Gson().toJson(l3List,collectionType));
-        edit.putString("List4", new Gson().toJson(l4List,collectionType));
+        edit.putString("List 1", new Gson().toJson(l1List,collectionType));
+        edit.putString("List 2", new Gson().toJson(l2List,collectionType));
+        edit.putString("List 3", new Gson().toJson(l3List,collectionType));
+        edit.putString("List 4", new Gson().toJson(l4List,collectionType));
         edit.apply();
 
     }

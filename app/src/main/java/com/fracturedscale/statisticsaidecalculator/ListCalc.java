@@ -106,4 +106,5 @@ public class ListCalc extends AppCompatActivity implements View.OnClickListener{
     }
 
 
+
 }

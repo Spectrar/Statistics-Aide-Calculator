@@ -30,58 +30,30 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         Button editListsBtn = findViewById(R.id.editListsBtn);
         editListsBtn.setOnClickListener(this);
 
+
+        ValueLists.l1List=loadArray("List 1");
+        ValueLists.l2List=loadArray("List 2");
+        ValueLists.l3List=loadArray("List 3");
+        ValueLists.l4List=loadArray("List 4");
+    }
+
+    private ArrayList<Double> loadArray(final String listName){
+        ArrayList<Double> temp = new ArrayList<Double>() {
+
+            @Override
+            public String toString() {
+                return listName;
+            }
+        };
+
         Type collectionType = new TypeToken<ArrayList<Double>>() {
         }.getType();
-        if (!myPref.getString("List1", "").equals("")) {
-            ValueLists.l1List = new Gson().fromJson(myPref.getString("List1", "").toString(), collectionType);
+        if (!myPref.getString(listName, "").equals("")) {
+            temp.addAll((ArrayList) new Gson().fromJson(myPref.getString(listName, ""), collectionType));
+            return temp;
         } else {
-            ValueLists.l1List = new ArrayList<Double>() {
-                private static final long serialVersionUID = 1L;
-
-                @Override
-                public String toString() {
-                    return "List 1";
-                }
-            };
+            return temp;
         }
-        if (!myPref.getString("List2", "").equals("")) {
-            ValueLists.l2List = new Gson().fromJson(myPref.getString("List2", ""), collectionType);
-        } else {
-            ValueLists.l2List = new ArrayList<Double>() {
-                private static final long serialVersionUID = 1L;
-
-                @Override
-                public String toString() {
-                    return "List 2";
-                }
-            };
-        }
-        if (!myPref.getString("List3", "").equals("")) {
-            ValueLists.l3List = new Gson().fromJson(myPref.getString("List3", ""), collectionType);
-        } else {
-            ValueLists.l3List = new ArrayList<Double>() {
-                private static final long serialVersionUID = 1L;
-
-                @Override
-                public String toString() {
-                    return "List 3";
-                }
-            };
-        }
-        if (!myPref.getString("List4", "").equals("")) {
-            ValueLists.l4List = new Gson().fromJson(myPref.getString("List4", ""), collectionType);
-        } else {
-            ValueLists.l4List = new ArrayList<Double>() {
-                private static final long serialVersionUID = 1L;
-
-                @Override
-                public String toString() {
-                    return "List 4";
-                }
-            };
-        }
-
-
     }
 
     @Override
