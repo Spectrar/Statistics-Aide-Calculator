@@ -103,6 +103,12 @@ public class ListCalc extends AppCompatActivity implements View.OnClickListener{
         }
         TextView f = findViewById(R.id.frequencyResult);
         f.setText(fStr);
+
+        TextView mode = findViewById(R.id.modeResult);
+        mode.setText(myCalc.theMode().toString());
+
+        TextView mean = findViewById(R.id.meanResult);
+        mean.setText(Double.toString(round(myCalc.theMean())));
     }
 
     private static double round(double value) {
