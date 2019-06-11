@@ -8,8 +8,12 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -61,8 +65,8 @@ public class ListCalc extends AppCompatActivity implements View.OnClickListener{
 
     private void calculate(){
         DataDrivenStatsHelper myCalc;
-        if(dataListSelector.getSelectedItem().toString().equals("Select Values List")){
-            Toast.makeText(this,"You must Select a values list", Toast.LENGTH_SHORT);
+        if(dataListSelector.getSelectedItem().equals("Select Values List")){
+            Toast.makeText(this,"You must Select a values list", Toast.LENGTH_SHORT).show();
         }else{
             if(freqListSelector.getSelectedItem().toString().equals("Select Frequency List")){
                 ArrayList<Double> temp = (ArrayList<Double>) dataListSelector.getSelectedItem();
@@ -72,16 +76,41 @@ public class ListCalc extends AppCompatActivity implements View.OnClickListener{
                 ArrayList<Double> temp2 = (ArrayList<Double>) freqListSelector.getSelectedItem();
                 HashMap<Double, Integer> map= new HashMap<>();
                 for(int i = 0; i<temp.size(); i++){
-                    if(temp.get(i).equals(null) || temp2.get(i).equals(null)){
+                    if(temp.get(i) == null || temp2.get(i)==null){
                         continue;
                     }
                     map.put(temp.get(i),temp2.get(i).intValue());
                 }
                 myCalc= new DataDrivenStatsHelper(map);
             }
-
+        populateViews(myCalc);
 
         }
+    }
+
+    private void populateViews(DataDrivenStatsHelper myCalc) {
+
+        String rFStr="";
+        for(Object key : myCalc.relativeFrequency().keySet()){
+            rFStr = rFStr+((Double) key)+" : "+round((double) myCalc.relativeFrequency().get(key))+"\n";
+        }
+        TextView rF = findViewById(R.id.relativeFrequencyResult);
+        rF.setText(rFStr);
+
+        String fStr="";
+        for(Object key : myCalc.singleFrequency().keySet()){
+            fStr = fStr+((Double) key)+" : "+round((double) myCalc.singleFrequency().get(key))+"\n";
+        }
+        TextView f = findViewById(R.id.frequencyResult);
+        f.setText(fStr);
+    }
+
+    private static double round(double value) {
+        if (3 < 0) throw new IllegalArgumentException();
+
+        BigDecimal bd = new BigDecimal(Double.toString(value));
+        bd = bd.setScale(3, RoundingMode.HALF_UP);
+        return bd.doubleValue();
     }
 
     /**

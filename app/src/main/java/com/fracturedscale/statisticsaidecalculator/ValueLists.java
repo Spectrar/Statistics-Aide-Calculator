@@ -262,6 +262,7 @@ public class ValueLists extends AppCompatActivity implements View.OnClickListene
                 array.set(i, Double.valueOf(et.getText().toString()));
             }
         }
+        array.remove(null);
     }
 
     @Override
