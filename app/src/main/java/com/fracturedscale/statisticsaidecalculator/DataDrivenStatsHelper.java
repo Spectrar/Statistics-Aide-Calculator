@@ -2,6 +2,7 @@ package com.fracturedscale.statisticsaidecalculator;
 
 import org.apache.commons.math3.stat.Frequency;
 import org.apache.commons.math3.stat.descriptive.SummaryStatistics;
+import org.apache.commons.math3.stat.regression.SimpleRegression;
 import org.apache.commons.math3.stat.inference.TestUtils;
 
 import java.util.*;
@@ -10,6 +11,7 @@ public class DataDrivenStatsHelper {
 
     private Frequency f = new Frequency();
     private SummaryStatistics ss = new SummaryStatistics();
+    private SimpleRegression sr = new SimpleRegression();
     private ArrayList<Double> noDuplicates = new ArrayList<>();
     private ArrayList<Double> fullList = new ArrayList<>();
 
@@ -22,6 +24,7 @@ public class DataDrivenStatsHelper {
                 ss.addValue(d);
                 fullList.add(d);
             }
+            sr.addData(d,map.get(d));
         }
         Collections.sort(noDuplicates);
         Collections.sort(fullList);
@@ -34,6 +37,7 @@ public class DataDrivenStatsHelper {
         for (Double d : list) {
             f.addValue(d);
             ss.addValue(d);
+            sr.addData(d,1);
             fullList.add(d);
             if (!noDuplicates.contains(d)) {
                 noDuplicates.add(d);
@@ -41,6 +45,10 @@ public class DataDrivenStatsHelper {
         }
         Collections.sort(noDuplicates);
         Collections.sort(fullList);
+    }
+
+    public String regressionLineEquation(){
+        return "y = "+sr.getIntercept()+" + "+sr.getSlope()+" * x";
     }
 
     public HashMap relativeFrequency() {

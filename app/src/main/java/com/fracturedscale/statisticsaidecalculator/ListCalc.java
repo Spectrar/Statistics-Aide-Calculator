@@ -164,6 +164,9 @@ public class ListCalc extends AppCompatActivity implements View.OnClickListener{
 
         TextView max = findViewById(R.id.maxResult);
         max.setText(padding+Double.toString(round(myCalc.theMax())));
+
+        TextView lR = findViewById(R.id.linRegResult);
+        lR.setText(padding+myCalc.regressionLineEquation());
     }
 
     private static double round(double value) {
