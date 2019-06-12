@@ -143,6 +143,15 @@ public class ListCalc extends AppCompatActivity implements View.OnClickListener{
 
         TextView uF = findViewById(R.id.upperFenceResult);
         uF.setText(Double.toString(round(myCalc.upperFence())));
+
+        TextView m = findViewById(R.id.medianResult);
+        m.setText(Double.toString(round(myCalc.theMedian())));
+
+        TextView sum = findViewById(R.id.sumResult);
+        sum.setText(Double.toString(round(myCalc.theSum())));
+
+        TextView sum2 = findViewById(R.id.sum2Result);
+        sum2.setText(Double.toString(round(myCalc.theSumSquared())));
     }
 
     private static double round(double value) {
