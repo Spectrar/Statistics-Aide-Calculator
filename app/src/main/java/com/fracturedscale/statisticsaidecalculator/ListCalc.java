@@ -152,6 +152,15 @@ public class ListCalc extends AppCompatActivity implements View.OnClickListener{
 
         TextView sum2 = findViewById(R.id.sum2Result);
         sum2.setText(Double.toString(round(myCalc.theSumSquared())));
+
+        TextView count = findViewById(R.id.countResult);
+        count.setText(Double.toString(round(myCalc.theCount())));
+
+        TextView min = findViewById(R.id.minResult);
+        min.setText(Double.toString(round(myCalc.theMin())));
+
+        TextView max = findViewById(R.id.maxResult);
+        max.setText(Double.toString(round(myCalc.theMax())));
     }
 
     private static double round(double value) {

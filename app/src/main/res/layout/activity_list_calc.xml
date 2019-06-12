@@ -389,21 +389,90 @@
             </TableRow>
 
             <TableRow
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:background="@drawable/textlines">
+
+            <TextView
+                android:id="@+id/sum2"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="Sum^2:"
+                android:textAlignment="textEnd"
+                android:textSize="17sp" />
+
+            <TextView
+                android:id="@+id/sum2Result"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:ems="10"
+                android:textSize="17sp" />
+        </TableRow>
+
+            <TableRow
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:background="@drawable/textlines">
 
                 <TextView
-                    android:id="@+id/sum2"
+                    android:id="@+id/count"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:text="Sum^2:"
+                    android:text="Total # of Values:"
                     android:textAlignment="textEnd"
                     android:textSize="17sp" />
 
                 <TextView
-                    android:id="@+id/sum2Result"
+                    android:id="@+id/countResult"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:textSize="17sp" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:background="@drawable/textlines">
+
+                <TextView
+                    android:id="@+id/max"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="Max:"
+                    android:textAlignment="textEnd"
+                    android:textSize="17sp" />
+
+                <TextView
+                    android:id="@+id/maxResult"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:textSize="17sp" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:background="@drawable/textlines">
+
+                <TextView
+                    android:id="@+id/min"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="Min:"
+                    android:textAlignment="textEnd"
+                    android:textSize="17sp" />
+
+                <TextView
+                    android:id="@+id/minResult"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
