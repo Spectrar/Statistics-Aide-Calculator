@@ -17,6 +17,7 @@ import java.math.RoundingMode;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.HashMap;
 
 public class ListCalc extends AppCompatActivity implements View.OnClickListener{
@@ -91,16 +92,26 @@ public class ListCalc extends AppCompatActivity implements View.OnClickListener{
 
     private void populateViews(DataDrivenStatsHelper myCalc) {
 
+        ArrayList<String> temp = new ArrayList<>();
         String rFStr="";
         for(Object key : myCalc.relativeFrequency().keySet()){
-            rFStr = rFStr+((Double) key)+" : "+round((double) myCalc.relativeFrequency().get(key))+"\n";
+            temp.add(((Double) key)+" : "+round((double) myCalc.relativeFrequency().get(key))+"\n");
+        }
+        Collections.sort(temp);
+        for(String s: temp){
+            rFStr=rFStr+s;
         }
         TextView rF = findViewById(R.id.relativeFrequencyResult);
         rF.setText(rFStr);
 
+        temp = new ArrayList<>();
         String fStr="";
         for(Object key : myCalc.singleFrequency().keySet()){
-            fStr = fStr+((Double) key)+" : "+round((double) myCalc.singleFrequency().get(key))+"\n";
+            temp.add(((Double) key)+" : "+round((double) myCalc.singleFrequency().get(key))+"\n");
+        }
+        Collections.sort(temp);
+        for(String s: temp){
+            fStr=fStr+s;
         }
         TextView f = findViewById(R.id.frequencyResult);
         f.setText(fStr);
@@ -120,6 +131,12 @@ public class ListCalc extends AppCompatActivity implements View.OnClickListener{
         TextView z = findViewById(R.id.zScoreResult);
         EditText zI = findViewById(R.id.zScoreInput);
         z.setText(Double.toString(round(myCalc.theZScore(Double.valueOf(zI.getText().toString())))));
+
+        TextView q1 = findViewById(R.id.q1Result);
+        q1.setText(Double.toString(round(myCalc.theQ1())));
+
+        TextView q3 = findViewById(R.id.q3Result);
+        q3.setText(Double.toString(round(myCalc.theQ3())));
     }
 
     private static double round(double value) {
