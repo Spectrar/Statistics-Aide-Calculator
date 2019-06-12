@@ -7,6 +7,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -109,6 +110,16 @@ public class ListCalc extends AppCompatActivity implements View.OnClickListener{
 
         TextView mean = findViewById(R.id.meanResult);
         mean.setText(Double.toString(round(myCalc.theMean())));
+
+        TextView sd = findViewById(R.id.sdResult);
+        sd.setText(Double.toString(round(myCalc.theSampleStandardDeviation())));//TODO add population SD
+
+        TextView range = findViewById(R.id.rangeResult);
+        range.setText(Double.toString(round(myCalc.theRange())));
+
+        TextView z = findViewById(R.id.zScoreResult);
+        EditText zI = findViewById(R.id.zScoreInput);
+        z.setText(Double.toString(round(myCalc.theZScore(Double.valueOf(zI.getText().toString())))));
     }
 
     private static double round(double value) {
