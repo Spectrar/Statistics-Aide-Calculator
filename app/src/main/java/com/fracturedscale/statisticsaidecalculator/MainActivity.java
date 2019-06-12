@@ -30,6 +30,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         Button editListsBtn = findViewById(R.id.editListsBtn);
         editListsBtn.setOnClickListener(this);
 
+        Button noListBtn = findViewById(R.id.noList);
+        noListBtn.setOnClickListener(this);
+
 
         ValueLists.l1List=loadArray("List 1");
         ValueLists.l2List=loadArray("List 2");
@@ -66,6 +69,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.editListsBtn:
                 i = new Intent(MainActivity.this, ValueLists.class);
+                startActivity(i);
+                break;
+            case R.id.noList:
+                i = new Intent(MainActivity.this, NoListCalcActivity.class);
                 startActivity(i);
                 break;
         }
