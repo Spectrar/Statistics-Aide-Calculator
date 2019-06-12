@@ -137,6 +137,12 @@ public class ListCalc extends AppCompatActivity implements View.OnClickListener{
 
         TextView q3 = findViewById(R.id.q3Result);
         q3.setText(Double.toString(round(myCalc.theQ3())));
+
+        TextView lF = findViewById(R.id.lowerFenceResult);
+        lF.setText(Double.toString(round(myCalc.lowerFence())));
+
+        TextView uF = findViewById(R.id.upperFenceResult);
+        uF.setText(Double.toString(round(myCalc.upperFence())));
     }
 
     private static double round(double value) {
