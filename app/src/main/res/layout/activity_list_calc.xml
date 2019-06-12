@@ -171,22 +171,46 @@
             </TableRow>
 
             <TableRow
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:background="@drawable/textlines">
+
+            <TextView
+                android:id="@+id/samSd"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="Sample Standard Deviation:"
+                android:textAlignment="textEnd"
+                android:textSize="17sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/samSdResult"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:ems="10"
+                android:textSize="17sp" />
+        </TableRow>
+
+            <TableRow
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:background="@drawable/textlines">
 
                 <TextView
-                    android:id="@+id/sd"
+                    android:id="@+id/popSd"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:text="Standard Deviation:"
+                    android:text="Population Standard Deviation:"
                     android:textAlignment="textEnd"
                     android:textSize="17sp"
                     android:textStyle="bold" />
 
                 <TextView
-                    android:id="@+id/sdResult"
+                    android:id="@+id/popSdResult"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -435,7 +459,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:text="Total # of Values:"
+                    android:text="Number of Values:"
                     android:textAlignment="textEnd"
                     android:textSize="17sp"
                     android:textStyle="bold" />

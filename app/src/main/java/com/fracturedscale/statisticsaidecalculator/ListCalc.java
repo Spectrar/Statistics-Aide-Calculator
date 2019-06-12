@@ -122,8 +122,11 @@ public class ListCalc extends AppCompatActivity implements View.OnClickListener{
         TextView mean = findViewById(R.id.meanResult);
         mean.setText(padding+Double.toString(round(myCalc.theMean())));
 
-        TextView sd = findViewById(R.id.sdResult);
-        sd.setText(padding+Double.toString(round(myCalc.theSampleStandardDeviation())));//TODO add population SD
+        TextView samSd = findViewById(R.id.samSdResult);
+        samSd.setText(padding+Double.toString(round(myCalc.theSampleStandardDeviation())));//TODO add population SD
+
+        TextView popSd = findViewById(R.id.popSdResult);
+        popSd.setText(padding+Double.toString(round(myCalc.thePopulationStandardDeviation())));
 
         TextView range = findViewById(R.id.rangeResult);
         range.setText(padding+Double.toString(round(myCalc.theRange())));
