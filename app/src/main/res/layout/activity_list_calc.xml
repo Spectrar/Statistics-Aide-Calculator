@@ -86,7 +86,8 @@
                     android:layout_weight="1"
                     android:text="Relative Frequency:"
                     android:textAlignment="textEnd"
-                    android:textSize="17sp" />
+                    android:textSize="17sp"
+                    android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/relativeFrequencyResult"
@@ -109,7 +110,8 @@
                     android:layout_weight="1"
                     android:text="Frequency:"
                     android:textAlignment="textEnd"
-                    android:textSize="17sp" />
+                    android:textSize="17sp"
+                    android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/frequencyResult"
@@ -132,7 +134,8 @@
                     android:layout_weight="1"
                     android:text="Mode:"
                     android:textAlignment="textEnd"
-                    android:textSize="17sp" />
+                    android:textSize="17sp"
+                    android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/modeResult"
@@ -155,7 +158,8 @@
                     android:layout_weight="1"
                     android:text="Mean:"
                     android:textAlignment="textEnd"
-                    android:textSize="17sp" />
+                    android:textSize="17sp"
+                    android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/meanResult"
@@ -178,7 +182,8 @@
                     android:layout_weight="1"
                     android:text="Standard Deviation:"
                     android:textAlignment="textEnd"
-                    android:textSize="17sp" />
+                    android:textSize="17sp"
+                    android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/sdResult"
@@ -201,7 +206,8 @@
                     android:layout_weight="1"
                     android:text="Range:"
                     android:textAlignment="textEnd"
-                    android:textSize="17sp" />
+                    android:textSize="17sp"
+                    android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/rangeResult"
@@ -238,7 +244,8 @@
                         android:layout_weight=".5"
                         android:text="Z Score:"
                         android:textAlignment="textEnd"
-                        android:textSize="17sp" />
+                        android:textSize="17sp"
+                        android:textStyle="bold" />
                 </LinearLayout>
 
                 <TextView
@@ -262,7 +269,8 @@
                     android:layout_weight="1"
                     android:text="Q1:"
                     android:textAlignment="textEnd"
-                    android:textSize="17sp" />
+                    android:textSize="17sp"
+                    android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/q1Result"
@@ -285,7 +293,8 @@
                     android:layout_weight="1"
                     android:text="Q3:"
                     android:textAlignment="textEnd"
-                    android:textSize="17sp" />
+                    android:textSize="17sp"
+                    android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/q3Result"
@@ -308,7 +317,8 @@
                     android:layout_weight="1"
                     android:text="Lower Fence:"
                     android:textAlignment="textEnd"
-                    android:textSize="17sp" />
+                    android:textSize="17sp"
+                    android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/lowerFenceResult"
@@ -331,7 +341,8 @@
                     android:layout_weight="1"
                     android:text="Upper Fence:"
                     android:textAlignment="textEnd"
-                    android:textSize="17sp" />
+                    android:textSize="17sp"
+                    android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/upperFenceResult"
@@ -354,7 +365,8 @@
                     android:layout_weight="1"
                     android:text="Median:"
                     android:textAlignment="textEnd"
-                    android:textSize="17sp" />
+                    android:textSize="17sp"
+                    android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/medianResult"
@@ -377,7 +389,8 @@
                     android:layout_weight="1"
                     android:text="Sum:"
                     android:textAlignment="textEnd"
-                    android:textSize="17sp" />
+                    android:textSize="17sp"
+                    android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/sumResult"
@@ -393,14 +406,15 @@
             android:layout_height="match_parent"
             android:background="@drawable/textlines">
 
-            <TextView
-                android:id="@+id/sum2"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:text="Sum^2:"
-                android:textAlignment="textEnd"
-                android:textSize="17sp" />
+                <TextView
+                    android:id="@+id/sum2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="Sum^2:"
+                    android:textAlignment="textEnd"
+                    android:textSize="17sp"
+                    android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/sum2Result"
@@ -423,7 +437,8 @@
                     android:layout_weight="1"
                     android:text="Total # of Values:"
                     android:textAlignment="textEnd"
-                    android:textSize="17sp" />
+                    android:textSize="17sp"
+                    android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/countResult"
@@ -446,7 +461,8 @@
                     android:layout_weight="1"
                     android:text="Max:"
                     android:textAlignment="textEnd"
-                    android:textSize="17sp" />
+                    android:textSize="17sp"
+                    android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/maxResult"
@@ -469,7 +485,8 @@
                     android:layout_weight="1"
                     android:text="Min:"
                     android:textAlignment="textEnd"
-                    android:textSize="17sp" />
+                    android:textSize="17sp"
+                    android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/minResult"

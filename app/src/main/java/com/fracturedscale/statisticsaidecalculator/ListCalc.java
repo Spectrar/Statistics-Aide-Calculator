@@ -91,7 +91,7 @@ public class ListCalc extends AppCompatActivity implements View.OnClickListener{
     }
 
     private void populateViews(DataDrivenStatsHelper myCalc) {
-
+        String padding = "  ";
         ArrayList<String> temp = new ArrayList<>();
         String rFStr="";
         for(Object key : myCalc.relativeFrequency().keySet()){
@@ -117,50 +117,50 @@ public class ListCalc extends AppCompatActivity implements View.OnClickListener{
         f.setText(fStr);
 
         TextView mode = findViewById(R.id.modeResult);
-        mode.setText(myCalc.theMode().toString());
+        mode.setText(padding+myCalc.theMode().toString());
 
         TextView mean = findViewById(R.id.meanResult);
-        mean.setText(Double.toString(round(myCalc.theMean())));
+        mean.setText(padding+Double.toString(round(myCalc.theMean())));
 
         TextView sd = findViewById(R.id.sdResult);
-        sd.setText(Double.toString(round(myCalc.theSampleStandardDeviation())));//TODO add population SD
+        sd.setText(padding+Double.toString(round(myCalc.theSampleStandardDeviation())));//TODO add population SD
 
         TextView range = findViewById(R.id.rangeResult);
-        range.setText(Double.toString(round(myCalc.theRange())));
+        range.setText(padding+Double.toString(round(myCalc.theRange())));
 
         TextView z = findViewById(R.id.zScoreResult);
         EditText zI = findViewById(R.id.zScoreInput);
-        z.setText(Double.toString(round(myCalc.theZScore(Double.valueOf(zI.getText().toString())))));
+        z.setText(padding+Double.toString(round(myCalc.theZScore(Double.valueOf(zI.getText().toString())))));
 
         TextView q1 = findViewById(R.id.q1Result);
-        q1.setText(Double.toString(round(myCalc.theQ1())));
+        q1.setText(padding+Double.toString(round(myCalc.theQ1())));
 
         TextView q3 = findViewById(R.id.q3Result);
-        q3.setText(Double.toString(round(myCalc.theQ3())));
+        q3.setText(padding+Double.toString(round(myCalc.theQ3())));
 
         TextView lF = findViewById(R.id.lowerFenceResult);
-        lF.setText(Double.toString(round(myCalc.lowerFence())));
+        lF.setText(padding+Double.toString(round(myCalc.lowerFence())));
 
         TextView uF = findViewById(R.id.upperFenceResult);
-        uF.setText(Double.toString(round(myCalc.upperFence())));
+        uF.setText(padding+Double.toString(round(myCalc.upperFence())));
 
         TextView m = findViewById(R.id.medianResult);
-        m.setText(Double.toString(round(myCalc.theMedian())));
+        m.setText(padding+Double.toString(round(myCalc.theMedian())));
 
         TextView sum = findViewById(R.id.sumResult);
-        sum.setText(Double.toString(round(myCalc.theSum())));
+        sum.setText(padding+Double.toString(round(myCalc.theSum())));
 
         TextView sum2 = findViewById(R.id.sum2Result);
-        sum2.setText(Double.toString(round(myCalc.theSumSquared())));
+        sum2.setText(padding+Double.toString(round(myCalc.theSumSquared())));
 
         TextView count = findViewById(R.id.countResult);
-        count.setText(Double.toString(round(myCalc.theCount())));
+        count.setText(padding+Double.toString(round(myCalc.theCount())));
 
         TextView min = findViewById(R.id.minResult);
-        min.setText(Double.toString(round(myCalc.theMin())));
+        min.setText(padding+Double.toString(round(myCalc.theMin())));
 
         TextView max = findViewById(R.id.maxResult);
-        max.setText(Double.toString(round(myCalc.theMax())));
+        max.setText(padding+Double.toString(round(myCalc.theMax())));
     }
 
     private static double round(double value) {
