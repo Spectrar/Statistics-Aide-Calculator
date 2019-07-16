@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".NoListCalcActivity">
+    tools:context=".NoListCalcActivity"
+    android:id="@+id/noList">
 
     <TextView
         android:id="@+id/textView7"
@@ -45,12 +46,14 @@
                 android:weightSum="1">
 
                 <Button
+                    android:id="@+id/nCDF"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight=".5"
-                    android:text="Button" />
+                    android:text="NormalCDF" />
 
                 <TextView
+                    android:id="@+id/nCDFResults"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight=".5"
