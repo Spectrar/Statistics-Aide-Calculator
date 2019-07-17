@@ -109,12 +109,14 @@
                 android:weightSum="1">
 
                 <Button
+                    android:id="@+id/invT"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight=".5"
-                    android:text="Button" />
+                    android:text="InvT" />
 
                 <TextView
+                    android:id="@+id/invTResults"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight=".5"
@@ -128,12 +130,14 @@
                 android:weightSum="1">
 
                 <Button
+                    android:id="@+id/invTCI"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight=".5"
-                    android:text="Button" />
+                    android:text="InvT Confidence Interval" />
 
                 <TextView
+                    android:id="@+id/invTCIResults"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight=".5"

@@ -48,6 +48,12 @@ public class NoListCalcActivity extends AppCompatActivity implements View.OnClic
 
         Button invNormCI = findViewById(R.id.invNormCI);
         invNormCI.setOnClickListener(this);
+
+        Button invT = findViewById(R.id.invT);
+        invT.setOnClickListener(this);
+
+        Button invTCI = findViewById(R.id.invTCI);
+        invTCI.setOnClickListener(this);
     }
 
     /**
@@ -94,6 +100,18 @@ public class NoListCalcActivity extends AppCompatActivity implements View.OnClic
                 calcButton = (Button)dialog.findViewById(R.id.invnCIcalculate);
                 cancelButton = (Button)dialog.findViewById(R.id.invnCIcancel);
                 break;
+            case R.id.invT:
+                dialog.setContentView(R.layout.invtpopup);
+                calcButton = (Button)dialog.findViewById(R.id.invtcalculate);
+                cancelButton = (Button)dialog.findViewById(R.id.invtcancel);
+//                TextView temp1 = findViewById(R.id.invNormResults);
+//                temp1.setText(String.valueOf(sh.invNorm(.025,0,1)));
+                break;
+            case R.id.invTCI:
+                dialog.setContentView(R.layout.invntcipopup);
+                calcButton = (Button)dialog.findViewById(R.id.invtCIcalculate);
+                cancelButton = (Button)dialog.findViewById(R.id.invtCIcancel);
+                break;
         }
 
 
@@ -112,6 +130,7 @@ public class NoListCalcActivity extends AppCompatActivity implements View.OnClic
             @Override
             public void onClick(View arg0) {
                     TextView temp;
+                StringBuilder sb;
                     switch(view.getId()){
                         case R.id.nCDF:
                             temp = findViewById(R.id.nCDFResults);
@@ -131,16 +150,37 @@ public class NoListCalcActivity extends AppCompatActivity implements View.OnClic
                             break;
                         case R.id.invNormCI:
                             temp = findViewById(R.id.invNormCIResults);
-                            double e = (sh.invNormConfidenceInterval(Double.valueOf(((EditText) dialog.findViewById(R.id.invnCIInv)).getText().toString())
+                            double eN = (sh.invNormConfidenceInterval(Double.valueOf(((EditText) dialog.findViewById(R.id.invnCIInv)).getText().toString())
                                     ,Double.valueOf(((EditText) dialog.findViewById(R.id.invnCIP)).getText().toString())
                                     ,Double.valueOf(((EditText) dialog.findViewById(R.id.invnCIN)).getText().toString())));
-                            StringBuilder sb = new StringBuilder();
+                            sb = new StringBuilder();
                             sb.append("E= ");
-                            sb.append(e);
+                            sb.append(eN);
                             sb.append("\nInterval: ");
-                            sb.append(round(Double.valueOf(((EditText) dialog.findViewById(R.id.invnCIP)).getText().toString())-e));
+                            sb.append(round(Double.valueOf(((EditText) dialog.findViewById(R.id.invnCIP)).getText().toString())-eN));
                             sb.append(" <P< ");
-                            sb.append(round(e+Double.valueOf(((EditText) dialog.findViewById(R.id.invnCIP)).getText().toString())));
+                            sb.append(round(eN+Double.valueOf(((EditText) dialog.findViewById(R.id.invnCIP)).getText().toString())));
+                            temp.setText(sb.toString());
+                            dialog.dismiss();
+                            break;
+                        case R.id.invT:
+                            temp = findViewById(R.id.invTResults);
+                            temp.setText(String.valueOf(sh.invT(Double.valueOf(((EditText) dialog.findViewById(R.id.invtArea)).getText().toString())
+                                    ,Double.valueOf(((EditText) dialog.findViewById(R.id.invtDF)).getText().toString()))));
+                            dialog.dismiss();
+                            break;
+                        case R.id.invTCI:
+                            temp = findViewById(R.id.invTCIResults);
+                            double eT = (sh.invTConfidenceInterval(Double.valueOf(((EditText) dialog.findViewById(R.id.invtCIInv)).getText().toString())
+                                    ,Double.valueOf(((EditText) dialog.findViewById(R.id.invtCISD)).getText().toString())
+                                    ,Double.valueOf(((EditText) dialog.findViewById(R.id.invtCIN)).getText().toString())));
+                            sb = new StringBuilder();
+                            sb.append("E= ");
+                            sb.append(eT);
+                            sb.append("\nInterval: ");
+                            sb.append(round(Double.valueOf(((EditText) dialog.findViewById(R.id.invtCIMean)).getText().toString())-eT));
+                            sb.append(" <P< ");
+                            sb.append(round(eT+Double.valueOf(((EditText) dialog.findViewById(R.id.invtCIMean)).getText().toString())));
                             temp.setText(sb.toString());
                             dialog.dismiss();
                             break;

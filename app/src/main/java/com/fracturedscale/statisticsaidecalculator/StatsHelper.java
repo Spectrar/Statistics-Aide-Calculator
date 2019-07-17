@@ -1,5 +1,6 @@
 package com.fracturedscale.statisticsaidecalculator;
 
+import org.apache.commons.math3.distribution.TDistribution;
 import org.apache.commons.math3.stat.inference.BinomialTest;
 import org.apache.commons.math3.stat.interval.BinomialConfidenceInterval;
 import org.apache.commons.math3.distribution.NormalDistribution;
@@ -24,4 +25,12 @@ public class StatsHelper {
         return (invN*Math.sqrt((p*(1-p))/n));
     }
 
+    public double invT(double area, double df){
+        TDistribution tD = new TDistribution(df);
+        return tD.inverseCumulativeProbability(area);
+    }
+
+    public double invTConfidenceInterval(double invT, double sd, double n){
+        return (invT*(sd/Math.sqrt(n)));
+    }
 }
