@@ -43,6 +43,9 @@ public class NoListCalcActivity extends AppCompatActivity implements View.OnClic
         Button normalCDF = findViewById(R.id.nCDF);
         normalCDF.setOnClickListener(this);
 
+        Button binomPDF = findViewById(R.id.bPDF);
+        binomPDF.setOnClickListener(this);
+
         Button invNorm = findViewById(R.id.invNorm);
         invNorm.setOnClickListener(this);
 
@@ -87,6 +90,11 @@ public class NoListCalcActivity extends AppCompatActivity implements View.OnClic
                 dialog.setContentView(R.layout.normalcdfpopup);
                 calcButton = (Button)dialog.findViewById(R.id.cdfcalculate);
                 cancelButton = (Button)dialog.findViewById(R.id.cdfcancel);
+                break;
+            case R.id.bPDF:
+                dialog.setContentView(R.layout.binompdfpopup);
+                calcButton = (Button)dialog.findViewById(R.id.pdfcalculate);
+                cancelButton = (Button)dialog.findViewById(R.id.pdfcancel);
                 break;
             case R.id.invNorm:
                 dialog.setContentView(R.layout.invnormpopup);
@@ -139,6 +147,13 @@ public class NoListCalcActivity extends AppCompatActivity implements View.OnClic
                                     ,Double.valueOf(((EditText) dialog.findViewById(R.id.cdfupper)).getText().toString())
                                     ,Double.valueOf(((EditText) dialog.findViewById(R.id.cdfmean)).getText().toString())
                                     ,Double.valueOf(((EditText) dialog.findViewById(R.id.cdfsd)).getText().toString()))));
+                            dialog.dismiss();
+                            break;
+                        case R.id.bPDF:
+                            temp = findViewById(R.id.bPDFResults);
+                            temp.setText(String.valueOf(sh.binomPDF(Double.valueOf(((EditText) dialog.findViewById(R.id.pdfTrials)).getText().toString())
+                                    ,Double.valueOf(((EditText) dialog.findViewById(R.id.pdfP)).getText().toString())
+                                    ,Double.valueOf(((EditText) dialog.findViewById(R.id.pdfX)).getText().toString()))));
                             dialog.dismiss();
                             break;
                         case R.id.invNorm:

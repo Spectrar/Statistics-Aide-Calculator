@@ -67,6 +67,27 @@
                 android:weightSum="1">
 
                 <Button
+                    android:id="@+id/bPDF"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight=".5"
+                    android:text="BinomPDF" />
+
+                <TextView
+                    android:id="@+id/bPDFResults"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight=".5"
+                    android:gravity="center|left" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:orientation="horizontal"
+                android:weightSum="1">
+
+                <Button
                     android:id="@+id/invNorm"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
