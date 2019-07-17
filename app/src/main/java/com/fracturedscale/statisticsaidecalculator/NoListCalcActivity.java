@@ -39,6 +39,9 @@ public class NoListCalcActivity extends AppCompatActivity implements View.OnClic
     private void instantiateButtons() {
         Button normalCDF = findViewById(R.id.nCDF);
         normalCDF.setOnClickListener(this);
+
+        Button invNorm = findViewById(R.id.invNorm);
+        invNorm.setOnClickListener(this);
     }
 
     /**
@@ -73,6 +76,13 @@ public class NoListCalcActivity extends AppCompatActivity implements View.OnClic
                 calcButton = (Button)dialog.findViewById(R.id.cdfcalculate);
                 cancelButton = (Button)dialog.findViewById(R.id.cdfcancel);
                 break;
+            case R.id.invNorm:
+                dialog.setContentView(R.layout.invnormpopup);
+                calcButton = (Button)dialog.findViewById(R.id.invncalculate);
+                cancelButton = (Button)dialog.findViewById(R.id.invncancel);
+//                TextView temp1 = findViewById(R.id.invNormResults);
+//                temp1.setText(String.valueOf(sh.invNorm(.025,0,1)));
+                break;
         }
 
 
@@ -99,6 +109,13 @@ public class NoListCalcActivity extends AppCompatActivity implements View.OnClic
                                     ,Double.valueOf(((EditText) dialog.findViewById(R.id.cdfupper)).getText().toString())
                                     ,Double.valueOf(((EditText) dialog.findViewById(R.id.cdfmean)).getText().toString())
                                     ,Double.valueOf(((EditText) dialog.findViewById(R.id.cdfsd)).getText().toString()))));
+                            dialog.dismiss();
+                            break;
+                        case R.id.invNorm:
+                            temp = findViewById(R.id.invNormResults);
+                            temp.setText(String.valueOf(sh.invNorm(Double.valueOf(((EditText) dialog.findViewById(R.id.invnArea)).getText().toString())
+                                    ,Double.valueOf(((EditText) dialog.findViewById(R.id.invnMean)).getText().toString())
+                                    ,Double.valueOf(((EditText) dialog.findViewById(R.id.invnsd)).getText().toString()))));
                             dialog.dismiss();
                             break;
                     }

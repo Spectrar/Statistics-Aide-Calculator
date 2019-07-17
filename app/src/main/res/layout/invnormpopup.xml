@@ -17,7 +17,7 @@
             android:background="@color/noListPopupTitle"
             android:gravity="center"
             android:scaleType="center"
-            android:text="Normal CDF"
+            android:text="InvNorm"
             android:textSize="30sp" />
 
         <LinearLayout
@@ -30,10 +30,10 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="0.75"
                 android:gravity="right"
-                android:text="Lower:" />
+                android:text="Area:" />
 
             <EditText
-                android:id="@+id/cdflower"
+                android:id="@+id/invnArea"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.25"
@@ -50,36 +50,15 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="0.75"
                 android:gravity="right"
-                android:text="Upper:" />
-
-            <EditText
-                android:id="@+id/cdfupper"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="0.25"
-                android:inputType="numberDecimal"
-            />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="0.75"
-                android:gravity="right"
                 android:text="Mean:" />
 
             <EditText
-                android:id="@+id/cdfmean"
+                android:id="@+id/invnMean"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.25"
                 android:inputType="numberDecimal"
-            />
+                />
         </LinearLayout>
 
         <LinearLayout
@@ -95,12 +74,12 @@
                 android:text="SD:" />
 
             <EditText
-                android:id="@+id/cdfsd"
+                android:id="@+id/invnsd"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.25"
                 android:inputType="numberDecimal"
-            />
+                />
         </LinearLayout>
 
         <LinearLayout
@@ -109,14 +88,14 @@
             android:orientation="horizontal">
 
             <Button
-                android:id="@+id/cdfcalculate"
+                android:id="@+id/invncalculate"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.5"
                 android:text="Calculate" />
 
             <Button
-                android:id="@+id/cdfcancel"
+                android:id="@+id/invncancel"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.5"

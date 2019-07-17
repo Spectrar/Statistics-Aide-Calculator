@@ -67,12 +67,14 @@
                 android:weightSum="1">
 
                 <Button
+                    android:id="@+id/invNorm"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight=".5"
-                    android:text="Button" />
+                    android:text="InvNorm" />
 
                 <TextView
+                    android:id="@+id/invNormResults"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight=".5"

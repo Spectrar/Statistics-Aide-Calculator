@@ -15,4 +15,9 @@ public class StatsHelper {
         return nD.probability(lower,upper);
     }
 
+    public  double invNorm(double area, double mean, double sd){
+        nD = new NormalDistribution(mean,sd);
+        return nD.inverseCumulativeProbability(area);
+    }
+
 }
