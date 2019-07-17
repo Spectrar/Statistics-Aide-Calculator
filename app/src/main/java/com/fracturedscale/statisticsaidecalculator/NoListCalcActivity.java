@@ -19,6 +19,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
+
 public class NoListCalcActivity extends AppCompatActivity implements View.OnClickListener{
 
     StatsHelper sh;
@@ -42,6 +45,9 @@ public class NoListCalcActivity extends AppCompatActivity implements View.OnClic
 
         Button invNorm = findViewById(R.id.invNorm);
         invNorm.setOnClickListener(this);
+
+        Button invNormCI = findViewById(R.id.invNormCI);
+        invNormCI.setOnClickListener(this);
     }
 
     /**
@@ -83,6 +89,11 @@ public class NoListCalcActivity extends AppCompatActivity implements View.OnClic
 //                TextView temp1 = findViewById(R.id.invNormResults);
 //                temp1.setText(String.valueOf(sh.invNorm(.025,0,1)));
                 break;
+            case R.id.invNormCI:
+                dialog.setContentView(R.layout.invnormcipopup);
+                calcButton = (Button)dialog.findViewById(R.id.invnCIcalculate);
+                cancelButton = (Button)dialog.findViewById(R.id.invnCIcancel);
+                break;
         }
 
 
@@ -118,6 +129,21 @@ public class NoListCalcActivity extends AppCompatActivity implements View.OnClic
                                     ,Double.valueOf(((EditText) dialog.findViewById(R.id.invnsd)).getText().toString()))));
                             dialog.dismiss();
                             break;
+                        case R.id.invNormCI:
+                            temp = findViewById(R.id.invNormCIResults);
+                            double e = (sh.invNormConfidenceInterval(Double.valueOf(((EditText) dialog.findViewById(R.id.invnCIInv)).getText().toString())
+                                    ,Double.valueOf(((EditText) dialog.findViewById(R.id.invnCIP)).getText().toString())
+                                    ,Double.valueOf(((EditText) dialog.findViewById(R.id.invnCIN)).getText().toString())));
+                            StringBuilder sb = new StringBuilder();
+                            sb.append("E= ");
+                            sb.append(e);
+                            sb.append("\nInterval: ");
+                            sb.append(round(Double.valueOf(((EditText) dialog.findViewById(R.id.invnCIP)).getText().toString())-e));
+                            sb.append(" <P< ");
+                            sb.append(round(e+Double.valueOf(((EditText) dialog.findViewById(R.id.invnCIP)).getText().toString())));
+                            temp.setText(sb.toString());
+                            dialog.dismiss();
+                            break;
                     }
             }
         });
@@ -129,6 +155,15 @@ public class NoListCalcActivity extends AppCompatActivity implements View.OnClic
             }
         });
 
+
+    }
+
+    private double round(double value) {
+        if (3 < 0) throw new IllegalArgumentException();
+
+        BigDecimal bd = new BigDecimal(Double.toString(value));
+        bd = bd.setScale(4, RoundingMode.HALF_UP);
+        return bd.doubleValue();
     }
 
 
