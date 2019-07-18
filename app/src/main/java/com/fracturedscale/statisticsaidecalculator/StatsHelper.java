@@ -2,8 +2,6 @@ package com.fracturedscale.statisticsaidecalculator;
 
 import org.apache.commons.math3.distribution.BinomialDistribution;
 import org.apache.commons.math3.distribution.TDistribution;
-import org.apache.commons.math3.stat.descriptive.DescriptiveStatistics;
-import org.apache.commons.math3.stat.inference.BinomialTest;
 import org.apache.commons.math3.stat.interval.BinomialConfidenceInterval;
 import org.apache.commons.math3.distribution.NormalDistribution;
 import org.apache.commons.math3.util.CombinatoricsUtils;
