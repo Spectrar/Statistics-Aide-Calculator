@@ -172,12 +172,14 @@
                 android:weightSum="1">
 
                 <Button
+                    android:id="@+id/npr"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight=".5"
-                    android:text="Button" />
+                    android:text="nPr" />
 
                 <TextView
+                    android:id="@+id/nprResults"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight=".5"
@@ -191,12 +193,14 @@
                 android:weightSum="1">
 
                 <Button
+                    android:id="@+id/ncr"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight=".5"
-                    android:text="Button" />
+                    android:text="nCr" />
 
                 <TextView
+                    android:id="@+id/ncrResults"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight=".5"

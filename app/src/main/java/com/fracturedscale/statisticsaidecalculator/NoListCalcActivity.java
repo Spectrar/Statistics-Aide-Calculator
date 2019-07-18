@@ -57,6 +57,12 @@ public class NoListCalcActivity extends AppCompatActivity implements View.OnClic
 
         Button invTCI = findViewById(R.id.invTCI);
         invTCI.setOnClickListener(this);
+
+        Button npr = findViewById(R.id.npr);
+        npr.setOnClickListener(this);
+
+        Button ncr = findViewById(R.id.ncr);
+        ncr.setOnClickListener(this);
     }
 
     /**
@@ -120,10 +126,24 @@ public class NoListCalcActivity extends AppCompatActivity implements View.OnClic
                 calcButton = (Button)dialog.findViewById(R.id.invtCIcalculate);
                 cancelButton = (Button)dialog.findViewById(R.id.invtCIcancel);
                 break;
+            case R.id.ncr:
+                dialog.setContentView(R.layout.nprncrpopup);
+                TextView nrtv1 = (TextView) dialog.findViewById(R.id.nrTitle);
+                nrtv1.setText("The number of distinct combinations of n objects, taken r at a time");
+                calcButton = (Button)dialog.findViewById(R.id.nrcalculate);
+                cancelButton = (Button)dialog.findViewById(R.id.nrcancel);
+                break;
+            case R.id.npr:
+                dialog.setContentView(R.layout.nprncrpopup);
+                TextView nrtv2 = (TextView) dialog.findViewById(R.id.nrTitle);
+                nrtv2.setText("The number of distinct permutations of n objects, taken r at a time");
+                calcButton = (Button)dialog.findViewById(R.id.nrcalculate);
+                cancelButton = (Button)dialog.findViewById(R.id.nrcancel);
+                break;
         }
 
 
-        dialog.setTitle("Save New Number");
+        //dialog.setTitle("Save New Number");
         dialog.setCancelable(true);
 
         WindowManager.LayoutParams lp = new WindowManager.LayoutParams();
@@ -197,6 +217,18 @@ public class NoListCalcActivity extends AppCompatActivity implements View.OnClic
                             sb.append(" <P< ");
                             sb.append(round(eT+Double.valueOf(((EditText) dialog.findViewById(R.id.invtCIMean)).getText().toString())));
                             temp.setText(sb.toString());
+                            dialog.dismiss();
+                            break;
+                        case R.id.npr:
+                            temp = findViewById(R.id.nprResults);
+                            temp.setText(String.valueOf(sh.nPR(Double.valueOf(((EditText) dialog.findViewById(R.id.nrn)).getText().toString())
+                                    ,Double.valueOf(((EditText) dialog.findViewById(R.id.nrr)).getText().toString()))));
+                            dialog.dismiss();
+                            break;
+                        case R.id.ncr:
+                            temp = findViewById(R.id.ncrResults);
+                            temp.setText(String.valueOf(sh.nCR(Double.valueOf(((EditText) dialog.findViewById(R.id.nrn)).getText().toString())
+                                    ,Double.valueOf(((EditText) dialog.findViewById(R.id.nrr)).getText().toString()))));
                             dialog.dismiss();
                             break;
                     }

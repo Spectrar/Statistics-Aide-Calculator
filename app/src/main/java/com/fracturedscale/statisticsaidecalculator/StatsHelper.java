@@ -2,9 +2,11 @@ package com.fracturedscale.statisticsaidecalculator;
 
 import org.apache.commons.math3.distribution.BinomialDistribution;
 import org.apache.commons.math3.distribution.TDistribution;
+import org.apache.commons.math3.stat.descriptive.DescriptiveStatistics;
 import org.apache.commons.math3.stat.inference.BinomialTest;
 import org.apache.commons.math3.stat.interval.BinomialConfidenceInterval;
 import org.apache.commons.math3.distribution.NormalDistribution;
+import org.apache.commons.math3.util.CombinatoricsUtils;
 
 public class StatsHelper {
 
@@ -39,4 +41,17 @@ public class StatsHelper {
     public double invTConfidenceInterval(double invT, double sd, double n){
         return (invT*(sd/Math.sqrt(n)));
     }
+
+    public double nPR(double n, double r){
+        return (double) (CombinatoricsUtils.factorial((int)n)/CombinatoricsUtils.factorial(((int)n)-((int)r)));
+    }
+
+    public double nCR(double n, double r){
+        return (double) (CombinatoricsUtils.factorial((int)n)/(CombinatoricsUtils.factorial((int)r)*CombinatoricsUtils.factorial(((int)n)-((int)r))));
+    }
+
+    //TODO maybe include??
+//    public double probability(){
+//
+//    }
 }
