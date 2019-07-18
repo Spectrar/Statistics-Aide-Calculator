@@ -43,11 +43,11 @@ public class StatsHelper {
     }
 
     public double nPR(double n, double r){
-        return (double) (CombinatoricsUtils.factorial((int)n)/CombinatoricsUtils.factorial(((int)n)-((int)r)));
+        return (CombinatoricsUtils.factorialDouble((int)n)/CombinatoricsUtils.factorialDouble(((int)n)-((int)r)));
     }
 
     public double nCR(double n, double r){
-        return (double) (CombinatoricsUtils.factorial((int)n)/(CombinatoricsUtils.factorial((int)r)*CombinatoricsUtils.factorial(((int)n)-((int)r))));
+        return (CombinatoricsUtils.factorialDouble((int)n)/(CombinatoricsUtils.factorialDouble((int)r)*CombinatoricsUtils.factorialDouble(((int)n)-((int)r))));
     }
 
     //TODO maybe include??
